@@ -3,6 +3,7 @@
 
 // Syntax
 var name = 'Ali';
+console.log(name)   // Ali
 
 // Yahan name ek variable hai jisme string "Ali" store kiya gaya hai. Strings hum different operations
 //  ke liye use karte hain, jaise ke text ko join karna (concatenation), length check karna, etc.
