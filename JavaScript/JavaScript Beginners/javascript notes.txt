@@ -1,0 +1,36 @@
+1, word vs keyword
+
+mamu     this is a word.
+while    this is a keyword.
+
+2, Declaration & Initialization
+
+var num;    ya declaration hoti hai
+num = 20;   issa initialization kehta hain
+
+3, var, const
+
+var  data store krna ka lia use hota hai or isma hum value re-asign kr skte hain.
+conts    data store krna ka lia use hota hai or isma hum value re-asign nh kr skte, iski value constant rehti hai.
+
+4, Hoisting
+
+javascript me jo variables and functions hote hain wo hoisted hote hain iska mtlb ya hai,
+jab hum koi variable ya function ko declare krte hain tu wo apki file ka top par challa jata hai
+
+5, types in javascript
+
+javascript me mainly two types hote hain.
+a, Primitive.    number, string, null, undefined, boolean
+b, refrence      [], {}, ()      jhah bh brakcet a jaye wo refrence hota hai
+aesi koi bh value jisko copy krna par real copy nh hota, blka us main value ka refrence pass ho jata hai,
+usse hum refrence value kehta hain or jiska copy krna par real copy ho jaye wo premittive type value hota hai.
+
+6, Conditionals - if else, else if, else
+
+if()     brackets ka andar bx srf 2 cheezain ayengi true or false but direct true false nh likhta
+uski jghah aesi statement ya expression pass krte hain jo convert ho ka true ya phr false ban jaye.
+
+Example
+if(5 < 6)    true
+if(2 > 6)    false
