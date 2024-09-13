@@ -23,8 +23,8 @@ console.log(_age);          // 20
 
 // Example:
 
-var 123name;   // illegal
-var first name;  // illegal
-var var;       // illegal
+// var 123name;   // illegal
+// var first name;  // illegal
+// var var;       // illegal
 
 // ya illegal variables hai tu yhah pa error a rhah hai ishi lia
