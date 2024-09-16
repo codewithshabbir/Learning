@@ -1,295 +1,145 @@
-# React.js Learning and Project Setup
+React Learning
 
-### 1. **React Project Creation**
+create package.json file:
+npm init -y	---->	add type module
 
-#### **Command:**
-React project banane ke liye sabse pehle **npx** ka use karte hain:
+Types of Exports:
+default export	---->	use default keyword	---->	(srf aik hi function ko export kr skta hai mtlb aik hi cheez ko)
+name export	---->	use {}	---->	(ya multiple function ko export kr skta hai mtlb multiple cheez ko)
+export let myName = "Muhammad Shabbir";		---->	aesa bh export kia ja skta hai
+import { myAge as age } from "./ageAlias.js";	---->	alias import
 
-```bash
-npx create-react-app my-app
-```
-- Yeh command tumhara React project initialize karta hai, aur ek basic structure create karta hai.
+Extension Name:
+ES7 + React/Redux/React-Native snippets
 
----
-
-### 2. **Project Structure Overview**
-
-**`package.json` file:**
-- Is file mein **scripts** aur **dependencies** hoti hain.
-- Scripts wo commands hoti hain jo tum React app ko run, build, ya lint karne ke liye use karte ho.
-  - **`npm start`**: App ko start karta hai.
-  - **`npm build`**: Production ke liye app ko optimize karta hai.
-  - **`npm test`**: App ke tests ko run karta hai.
-- **dependencies**: React app ki sari zaroori libraries yahan listed hoti hain.
-
-**`node_modules` folder:**
-- Yeh folder React app ki **dependencies** ko contain karta hai. Isme sari libraries hoti hain jo `package.json` mein listed hoti hain.
-
-**Public Folder:**
-- Is folder mein tumhari **index.html** file hoti hai jo browser mein pehli dafa load hoti hai. Isme ek `<div id="root">` hota hai, jahan tumhari React app render hoti hai.
-
-**src Folder:**
-- Yeh React app ka main folder hota hai jahan tum apne saare **components** banate ho aur React ka main code likhte ho. Isme:
-  - **index.js**: Yeh file tumhari app ko start karti hai.
-  - **App.js**: Main component hota hai jo index.js se load hota hai.
-
----
-
-### 3. **What is JSX?**
-
-- **JSX** ek syntax extension hai jo tumhe HTML ko directly JavaScript ke andar likhne ki ijazat deta hai.
-- Yeh JavaScript ka XML jaise syntax hai jo browser mein JavaScript code banata hai.
-  
-Example:
-```jsx
-function Welcome() {
-  return <h1>Welcome to React</h1>;
-}
-```
-
----
-
-### 4. **Components in React**
-
-React mein **components** do tarah ke hotay hain:
-
-1. **Functional Components:**
-   - Simple JavaScript functions hote hain jo JSX return karte hain.
-
-   Example:
-   ```jsx
-   function Header() {
-     return <h1>My Header</h1>;
-   }
-   ```
-
-2. **Class Components:**
-   - JavaScript classes hoti hain jo `render` method ke through JSX return karti hain. **(Note: Functional components ko zyada prefer kiya jata hai aaj kal)**
-
-   Example:
-   ```jsx
-   class Header extends React.Component {
-     render() {
-       return <h1>My Header</h1>;
-     }
-   }
-   ```
-
-**Component ka First Letter Capital rakho:**  
-- React ko batane ke liye ke yeh ek component hai, tumhe component ka naam **capital letter** se shuru karna hota hai.
-
-**Multiple HTML Tags:**
-- Agar ek component ke andar multiple HTML tags likhne ho, toh tumhe un sab ko ek parent element ke andar wrap karna hota hai.
-
----
-
-### 5. **Props in React**
-
-- **Props** React mein ek mechanism hai jo tumhe **parent component** se **child component** ko data pass karne deta hai.
-- Props ko tum **custom attributes** ki tarah likhte ho jo object ke form mein child component tak pochti hain.
-
-Example:
-```jsx
-function Parent() {
-  return <Child name="Shabbir" />;
-}
-
-function Child(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-```
-
-**Destructuring Props:**
-- Tum props ko directly destructure bhi kar sakte ho:
-
-```jsx
-function Child({ name }) {
-  return <h1>Hello, {name}</h1>;
-}
-```
-
----
-
-### 6. **Children Props**
-
-- **Children props** ka use tab hota hai jab tum **component ke andar** kuch content likhna chaho.
-- Yeh content **children prop** ke zariye child component tak pochta hai.
-
-Example:
-```jsx
-function Parent() {
-  return (
-    <Child>
-      <p>This is a child content</p>
-    </Child>
-  );
-}
-
-function Child(props) {
-  return <div>{props.children}</div>;
-}
-```
-
----
-
-### 7. **Inline Styling in React**
-
-React mein inline styling karte waqt tum **object** ka format use karte ho:
-
-```jsx
-const headingStyle = {
-  color: 'red',
-  backgroundColor: 'yellow',
-};
-
-function Header() {
-  return <h1 style={headingStyle}>Styled Heading</h1>;
-}
-```
-
-Ya phir direct bhi kar sakte ho:
-
-```jsx
-<h1 style={{ color: 'blue' }}>Inline Styled Heading</h1>
-```
-
----
-
-### 8. **Bootstrap with React**
-
-Bootstrap ko React mein use karne ke liye pehle tumhe **bootstrap package** install karna hota hai:
-
-```bash
-npm i bootstrap
-```
-
-Phir tum apni **index.js** file mein import karte ho:
-
-```javascript
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle.js';
-```
-
----
-
-### 9. **React-Bootstrap**
-
-React-Bootstrap ek library hai jo Bootstrap ko React components ki tarah provide karti hai. Install karne ke liye:
-
-```bash
-npm i react-bootstrap
-```
-
-Phir tum direct Bootstrap ke React components use kar sakte ho:
-
-```jsx
-import { Button } from 'react-bootstrap';
-
-function MyButton() {
-  return <Button variant="primary">Click Me</Button>;
-}
-```
-
----
-
-### 10. **Handling State in React**
-
-React mein **state** ko handle karne ke liye tum **useState hook** ka use karte ho. State woh data hota hai jo component ke andar rehti hai aur component ke render hone ke process ko control karti hai.
-
-Example:
-```jsx
-import { useState } from 'react';
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>Current Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  );
-}
-```
-
----
-
-### 11. **React Project Commands**
-
-- **Project Start karna:**  
-  React project ko chalane ke liye terminal mein yeh command run karo:
-
-  ```bash
-  npm start
-  ```
-
-- **Project Stop karna:**  
-  Project ko rokne ke liye **Ctrl + C** press karo.
-
----
-
-### 12. **What is npm and npx?**
-
-- **npm:**  
-  Yeh ek package manager hai jo tumhare project mein **dependencies** ko manage karta hai. 
-  Tumhe koi bhi library install karni ho toh `npm install` use karte ho.
-
-- **npx:**  
-  Yeh **npm** ke saath aata hai lekin directly commands ko **run** karne ke liye use hota hai bina package ko globally install kiye.
-
-Example:  
-```bash
-npx create-react-app my-app
-```
-
----
-
-### 13. **Default Export vs Named Export**
-
-- **Default Export:**  
-  Is mein ek hi function ya variable ko export kar sakte hain.
-
-  Example:
-  ```javascript
-  export default function Header() {}
-  ```
-
-- **Named Export:**  
-  Is mein multiple functions ya variables ko export kar sakte hain.
-
-  Example:
-  ```javascript
-  export function Header() {}
-  export function Footer() {}
-  ```
-
-- Importing Default or Named Exports:
-  ```javascript
-  import Header from './Header'; // Default Export
-  import { Header, Footer } from './Components'; // Named Export
-  ```
-
-- **Alias Import:**
-  Tum **named exports** ka alias bhi bana sakte ho.
-
-  Example:
-  ```javascript
-  import { myAge as age } from './ageAlias.js';
-  ```
-
----
-
-### 14. **Command to Run index.js File in Node.js**
-
-React ke ilawa agar tum plain Node.js use kar rahe ho, toh **index.js** file ko run karne ke liye:
-
-```bash
+Command Run index.js file:
 node index.js
-```
+nodemon index.js	----->	(ya aik package hai jo globally system me installed krna hai issa file ki changing runtime pa show ho g)
 
-Agar tum real-time changes dekhna chahte ho toh **nodemon** install karo:
+console.log(`I am ${age} years old`);	---->	backtick use hwa hai isma
 
-```bash
-npm install -g nodemon
-nodemon index.js
-```
+
+what is npm and npx?
+npm	---->	(kisi bh package ko use krna ka lia ussa system me donwload krna hota hai npm ki help sa)
+npx	---->	(npx ki help sa koi bh package apka folder ma direct a jata hai bina system me install kia)
+
+
+React Project Creation Command:
+npx create-react-app
+
+
+If React Installation Failed:
+C Drive > user > myFolderName > AppData > Roaming	----->	check npm folder exist or not agar nh hai tu create krdo npm name sa folder
+
+
+Project Run Command:
+npm start
+
+Stop Project:
+ctrl + c
+
+
+Package.json file:
+kn kn si package ki dependencies install hoi hai wo yhah dekh skte hain
+
+node_module folder:
+jo jo package ki dependencies ki files hoti hai wo node module ka folder ma a jati hai
+
+
+Public Folder:
+index.html file	----> run first
+
+
+src Folder:
+jitna bh components banenga wo src ka folders me banenga
+index.html me jo div hai jiski id root hai whah sa root ki id ko index.js ma access krka render karta hai
+basically index.html file main hai hmari jo index.js sa data lekr index.html tak pcha rh hai
+sab kch hum ishi folder ma karenga
+
+
+what is jsx?
+jsx file ka zarya hum html ka tags bh use kr skta hain or js ka code bh use kr skte hain
+
+
+
+class reserved keyword hai javascript ka ishi lia className ka name sa class use hoti hai
+
+if-else statement:
+if-else ki jghah uski short form ternary operators ko use krna hai
+
+inline-style:
+style={{color:red}} aesa inline styling krni hai
+
+
+What is components?	(Two types of components)
+functional components
+class components
+
+component ka first word capital rkhana hai take hume pata chl sake ka ya component hai
+component ka andar agar 2 ya multiple html ka tags use krne hai tu uska parent tag bnana lazmi hai
+component create krna ka lia file ma ya type krna hai "rfc" means (React Function Component) iska baad khd auto suggestion dena lag jaye ga agar extension installed hai tu
+
+component access methods:
+<Header/>		-----> self closing tag ki trhah bh component ko use kr skta hain
+<header><Header/>	-----> pair tag ki trhah bh component ko use kr skta hain
+
+How to add Bootstrap?
+npm i bootstrap		----> install bootstrap in react js
+
+Use Bootstrap in React js:
+import "bootstrap/dist/css/bootstrap.css"
+import "bootstrap/dist/js/bootstrap.bundle.js"
+in dono files ko index.js me add krna hai take hum bootstrap ko apna project me use kar saken
+
+Reactive Bootstrap:
+ya hame kch tags bana ka da deta hai bootstrap ka react ka andr just like <Container fluid/>
+
+How to add React-Bootstrap?
+npm i react-bootstrap		----> install react-bootstrap in react js
+
+
+Props in React js:
+parent component sa child component ma agar data pochana ho tu hum props ka use karte hain
+props hame custom attribute bnane ki sahoolat deta hai or iska zarya hum parent component ka data child component ma use kr skta hain
+props ka parameter hamen object deta hai
+
+Props Example:
+Parent:
+     <Header email = "abc@gmail.com"/>
+
+Child:
+function Header(props) {	----> iska name ap kch bh da skte ho
+  console.log(props.email);	----> props hmare pass object ma atta hai
+}
+
+Destructure:
+function Header({email}) {
+  console.log(email);		-----> aesa bh destructure kr skte ho
+}
+
+function Header(props) {
+let {email} = props;		-----> aesa bh destructure kr skte ho
+  console.log(email);
+}
+
+
+
+what is childern props?
+children prop ko hum pair tag yani component ka pair ka bech ma likhte hain or phr usko children component ka parameter ma children keyword ka sath likhte hain or children keyword fixed hai or isko destructre bh kar deta hain
+
+Children Prop Example:
+<Header email = "abc@gmail.com">
+      <h1>My Menu</h1>
+</Header>
+
+export default function Header({email,  children }) {
+  console.log(email);
+  console.log(children);
+}
+
+
+
+
+
+
+
