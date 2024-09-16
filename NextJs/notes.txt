@@ -1,0 +1,128 @@
+### Next.js Environment Setup
+
+**Steps:**
+1. Node.js install karo
+2. VS Code install karo
+3. `create-next-app` use karo
+
+### Project Structure:
+
+**package.json:**
+Is file mein scripts aur dependencies hoti hain. Scripts mein commands hoti hain jaise `dev`, `build`,
+`start`, aur `lint`. Dependencies mein project ki main libraries ya packages listed hoti hain.
+
+**package-lock.json:**
+Is file mein tumhari dependencies ki bhi dependencies hoti hain, taake exact version lock ho jaye.
+
+**next.config.js:**
+Yeh Next.js ki configuration file hai. Ismein `reactStrictMode: true` hota hai jo development ke dauran
+runtime errors ko catch karta hai.
+
+**.gitignore:**
+Is file mein woh files ya folders likhtay hain jo GitHub par push nahi karni hoti, jaise `node_modules`
+ya environment files.
+
+**styles folder:**
+
+- **global.css:**  
+  Is file mein app/web ki global CSS likhi jati hai.
+
+- **Home.module.css:**  
+  Module CSS ka matlab hai ke agar kisi specific page ko separate style dena ho, toh aap aisi file bana
+  sakte hain.
+
+**Public Folder:**
+Is folder mein tumhare saare assets hote hain jo app ya web ke andar use hote hain, jaise images ya static
+files.
+
+### Pages Folder:
+
+**api folder:**
+Yahan hum apni sari APIs ko manage karte hain. Next.js mein APIs ke liye alag folder hota hai.
+
+**_app.js:**  
+Yeh file app ka root component hota hai jahan sab pages render hote hain.
+
+**_document.js:**  
+Is file mein HTML aur body tags ko customize karte hain.
+
+**index.js:**  
+Yeh tumhara homepage hota hai jo default route pe load hota hai.
+
+### Code Workflow in Next.js:
+
+Sab se pehle `npm run dev` command run karte hain. Is se ek URL milta hai jahan tumhara app run hota hai.
+
+Jab app run hoti hai, toh ek `.next` folder create hota hai jisme tumhara sara compiled code hota hai aur
+wahi se app execute hoti hai.
+
+Jo bhi page ki file banti hai, uska code `_app.js` ke `App` component mein jata hai, aur uske baad page
+load hota hai. Next.js mein client-side rendering nahi hoti, balke pre-rendering hoti hai.
+
+### Basic Routing in Next.js:
+
+React.js mein routing ke liye package install karna parta tha aur alag se routes banani parti thi. Lekin
+Next.js mein file-based routing hoti hai. Har file ka route uske naam ke hisaab se ban jata hai.
+
+Jaise agar maine `about.jsx` file banayi hai, toh usko access karne ke liye main 
+`http://localhost:3000/about` URL pe ja sakta hoon.
+
+**RFC (React Functional Component):**  
+Yeh ek shortcut hota hai React ka boilerplate component jaldi se banane ke liye.
+
+### Routes Nesting in Next.js:
+
+Nesting routing ke liye main ek parent folder banaunga, jaise `services`. Is folder mein ek `index.jsx`
+file hogi aur uske child pages jaise `web-design.jsx` aur `graphic-design.jsx`. Access karne ke liye URL
+hoga `services/web-design`.
+
+### Dynamic Routing in Next.js:
+
+Agar tumhare paas multiple blogs hain aur un sab ka slug yani URL alag alag ho, toh tum dynamic routing
+use kar sakte ho. Is case mein file ka naam `[blog_slug].jsx` rakha jata hai.
+
+Is file mein tum dynamic content render karne ke liye `useRouter` hook import karte ho. Phir router ke
+`query` object ko use karke dynamic slug access kar sakte ho.
+
+Nesting of dynamic routes in next js:
+Dynamic routes nesting ka matlab hai ke jab tumhare paas parent-child relationship ho, jaise ek blog aur uske under images.
+
+Next.js mein dynamic routes banane ke liye square brackets [] ka use hota hai. Agar nested dynamic routes chahiyein, toh folder ke andar aur dynamic folders ya files banayi ja sakti hain.
+
+folder structure:
+pages/    -> Folder
+  blogs/    -> Folder
+    [blog_slug]/    -> Folder
+      images/   -> Folder
+        [image_id].jsx
+      index.jsx
+
+blogs/[blog_slug]: Yeh parent dynamic route hai, jahan blog_slug dynamically change hoga.
+blogs/[blog_slug]/images/[image_id].jsx: Nested dynamic route, jo specific blog ke image ko handle karega.
+
+Example URLs:
+http://localhost:3000/blogs/my-first-blog: Access my-first-blog
+http://localhost:3000/blogs/my-first-blog/images/123: Access image with id=123 in my-first-blog
+
+
+Navigating Routes in NextJs:
+Navigate krwane ka 2 tareeqa hai 1, Link and 2, Push
+
+Link:
+Sabse pehle hum _app.js file mein jaayenge aur wahan ek Navigation component banayenge. Is component
+mein hum apne saare links rakhengay. Navigation ke liye next/link library ko import karenge, aur anchor
+tags ko Link component se replace kar denge.
+
+_app.js mein Navigation component ko main app structure ke upar rakhte hain, taake har page ke sath
+navigation bar dikhe.
+
+Link component next/link se import hota hai, jo anchor tag ko replace karta hai aur Next.js ka internal
+routing system use karta hai.
+
+Agar tumhe chahiye ke kisi page se direct first page (ya kisi bhi specific page) par jump karo aur browser
+ke back button ko disable kar do (taake user back button se wapas na ja sake), toh tum Link component mein
+replace prop use karoge.
+
+Yeh replace prop browser ke history stack mein naya entry add nahi karta, balki current entry ko replace
+kar deta hai.
+
