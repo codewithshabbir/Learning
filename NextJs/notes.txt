@@ -126,3 +126,9 @@ replace prop use karoge.
 Yeh replace prop browser ke history stack mein naya entry add nahi karta, balki current entry ko replace
 kar deta hai.
 
+custom 404 page in NextJs:
+
+pages ka root directory me aik new file create krni hai jiska name 404.jsx rkhna hai.
+
+What is pre-rendering in NextJs:
+
