@@ -86,7 +86,7 @@ function App() {
             return <div key={item.id} className='my-item'>
                     <div>
                       <input id={item.id} type="checkbox" checked={item.isChecked} onChange={() => todoCheck(item.id)} name="" />
-                      <label htmlFor={item.id} style={{ textDecoration: item.isChecked === 'true' ? 'line-through' : 'none' }}>{item.todoItem}</label>
+                      <label htmlFor={item.id} style={{ textDecoration: item.isChecked === true ? 'line-through' : 'none' }}>{item.todoItem}</label>
                     </div>
                     <div>
                       <FaRegEdit onClick={() => todoEdit(item.id)} className='icon'/>
