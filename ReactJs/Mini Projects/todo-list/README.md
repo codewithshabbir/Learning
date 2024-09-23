@@ -42,7 +42,7 @@ npm start
 
 ## 📸 Preview
 
-![Todo List App Preview](react-todo-app.png.png)
+![Todo List App Preview](react-todo-app.png)
 
 ## 🌟 Contributing
 
