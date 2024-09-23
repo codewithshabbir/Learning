@@ -12,6 +12,18 @@ import { myAge as age } from "./ageAlias.js";	---->	alias import
 Extension Name:
 ES7 + React/Redux/React-Native snippets
 
+ENnable html intellisence in React:
+vscode me jao setting ka icon dikha ga whah pa click kro then top right corner pa aik file ka icon dikha ga
+uska upar hover krna pa likha ho ga Open setting (json) uspa click kro then settings.json ki file open ho jaye g
+then ya code add krna hai
+"files.associations": {
+    "*.jsx": "javascriptreact",
+    "*.js": "javascriptreact",
+    "*.tsx": "javascriptreact"
+  },
+
+is code sa js, jsx and tsx 3no me sa koi bh file bnao ga usma intellisence a jaye g
+
 Command Run index.js file:
 node index.js
 nodemon index.js	----->	(ya aik package hai jo globally system me installed krna hai issa file ki changing runtime pa show ho g)
