@@ -115,3 +115,60 @@ arr.push(10);
 
 console.log(arr);
 
+
+
+
+
+
+
+
+
+
+// sync and async kia hota hai?
+// sync ka mtlb ek ka baad dsra kam hota hai, jab tak ek command complete nw ho dsra run nh hota
+
+// async ka mtlb sare kam aik sath shuru krdo or jiska answer pehla a jaye uska jawab dedo
+
+// async programming me ya hote hain:
+
+// setTimeout
+// setInterval
+// promises
+// fetch
+// axios
+// XMLHttpRequest
+
+// async js hai kia?
+// kai baar apka final code depended hota hai kisi or ka server par, is case me hame nh pata hota answer
+// uske server sa kab lot ka aye ga, to hum sync code nh likh skte or issa handle krna ka lia async code
+// likh deta hain taake blocking nw ho code me, or jab bh answer aye tu hum nw jo async function likh ho
+// wo code chala de.
+
+// setTimeout(callback, time in mili seconds) 1st callback jab bh khahi dekho tu smjh jao ya aik function hai,
+// 2nd time ko mili second me deta hain
+
+setTimeout(()=>{
+    console.log("hello");
+}, 10000)
+
+// callback code hamesha async code ana pa run hota hai.
+
+// js is not asynchronus:
+// js scync programming or ya single threaded hai 
+
+// async ki poori khani:
+
+// main stack ka andar sync ka code jate hain or wo run hone ka baad side stack ko dekhta hai usma jo code hai
+// agar wo run hone ka lia tyr hai tu ussa main stack me la ka run kr deta hain or main stack and side stack ka
+// darmyan me jo bridge ka kam krta hai wo event loop hota hai
+
+console.log('hi');          //1st ya chale ga
+setTimeout(()=>{
+    console.log("hello");   //3rd ya chalega
+}, 0)
+console.log('hi2');         //2nd ya chalega
+
+// aesa is lia hota hai because setTimeout async code hai is wjhah sa wo sync code run hone ka baad chalega
+
+// callbacks:
+
