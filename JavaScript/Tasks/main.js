@@ -185,20 +185,20 @@
 
 
 //random array ko sort krna hai ascending and descending order me without bui-in function
-var randomNum = [300, 20, 34, 50, 100, 700, 400, 350, 10];
-var temp;
+// var randomNum = [300, 20, 34, 50, 100, 700, 400, 350, 10];
+// var temp;
 
-for (let i = 0; i < randomNum.length; i++) {
-    for (let j = 0; j < i; j++) {
-        if (i < j) {
-            temp = i;
-            j=i;
-            i=temp;
-        }
-    }
-}
+// for (let i = 0; i < randomNum.length; i++) {
+//     for (let j = 0; j < i; j++) {
+//         if (i < j) {
+//             temp = i;
+//             j=i;
+//             i=temp;
+//         }
+//     }
+// }
 
-console.log(temp);
+// console.log(temp);
 
 
 
@@ -262,3 +262,81 @@ console.log(temp);
 //     }
 //     console.log(pattern);
 // }
+
+// var myName = 'SHAbBIR';
+// // var convertToLower = []
+
+// var text = myName.charCodeAt(0,1,2,3,4);
+
+// // for (let i = 0; i < myName.length; i++) {
+// //     var convertAsciiCode = myName.charCodeAt(i);
+// //     if (convertAsciiCode >= 65 && convertAsciiCode <= 90) { 
+// //         var convertLowerCase = convertAsciiCode + 32;
+// //         var asciToString = String.fromCharCode(convertLowerCase );
+// //         convertToLower.push(asciToString);   
+// //     }
+// // }
+// console.log(convertToLower.join(''));
+
+// var texInput = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa vel hic nobis facilis sit nam ab odit? Perspiciatis eum corrupti ullam officia aperiam deleniti, temporibus, distinctio hic et itaque repellat!';
+// var temp = '';
+// var tempInput = [];
+
+// for (let i = 0; i < texInput.length; i++) {
+//     temp += texInput[i];
+//    if (texInput.charCodeAt(i) == 32) {
+//         tempInput.push(temp) 
+//         temp='';
+//    }
+// }
+
+// for (let i = 0; i < tempInput.length; i++) {
+//     var inputFirstUppercase = tempInput[i][0].toUpperCase();
+//     var otherWords = tempInput[i].slice(1, tempInput.length - 1);
+//     console.log(inputFirstUppercase + otherWords);
+// }
+
+
+// var para = 'Lorem ipsum dolor sit amet consectetur shabbir adipisicing elit. Numquam shabbir doloremque qui ea corporis shabbir iusto nesciunt veritatis architecto excepturi, aspernatur ?';
+// // var wordsArr = para.split(' ');
+// var myName = 'shabbir';
+// var count = 0;
+// var newString = '';
+
+// for (let i = 0; i < wordsArr.length; i++) {
+//     if (wordsArr[i] == myName) {
+//         count++;
+//     }    
+// }
+// console.log(`The name ${myName} appears in ${count} times.`);
+
+
+// for (let j = 0; j < para.length - myName.length; j++) {
+//     if (para.slice(j, j+myName.length) == myName) {
+//         count2++;
+//     }
+// }
+
+var para = `Lorem ipsum dolor sit amet consectetur shabbir adipisicing elit. Numquam shabbir
+doloremque qui ea corporis shabbir iusto nesciunt veritatis architecto excepturi, aspernatur ?`;
+
+var myName = 'shabbir';
+var count = 0;
+var newString = '';
+
+for (let i = 0; i < para.length; i++) {
+    if (para.slice(i, i + myName.length) == myName) {
+        count++;
+        newString += 'Muhammad Shabbir';
+        i += myName.length -1;
+    }
+    else {
+        newString += para[i]
+    }
+    
+}
+console.log('old string', para);
+console.log('new string', newString);
+
+
+console.log(`The name ${myName} appears in ${count} times.`);
